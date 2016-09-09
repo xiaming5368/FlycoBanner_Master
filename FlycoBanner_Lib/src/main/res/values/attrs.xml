@@ -14,6 +14,8 @@
     <attr name="bb_period" format="integer"/>
     <!-- 是否支持自动滚动,默认true-->
     <attr name="bb_isAutoScrollEnable" format="boolean"/>
+    <!-- 是否支持单张图片自动滚动,默认true-->
+    <attr name="bb_isAutoScrollToSingle" format="boolean"/>
     <!--for LoopViewPager end-->
 
     <!-- 设置底部背景条颜色,默认透明 -->
@@ -71,6 +73,7 @@
         <attr name="bb_delay"/>
         <attr name="bb_period"/>
         <attr name="bb_isAutoScrollEnable"/>
+        <attr name="bb_isAutoScrollToSingle"/>
         <attr name="bb_barColor"/>
         <attr name="bb_isBarShowWhenLast"/>
         <attr name="bb_barPaddingLeft"/>

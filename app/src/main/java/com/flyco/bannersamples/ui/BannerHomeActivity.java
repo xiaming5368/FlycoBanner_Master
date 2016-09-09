@@ -80,7 +80,8 @@ public class BannerHomeActivity extends Activity {
     private void sib_simple_usage() {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_simple_usage);
 
-        sib
+        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -112,6 +113,8 @@ public class BannerHomeActivity extends Activity {
 //              .setIndicatorShow(true)                             //set indicator show or not
 //              .setDelay(2)                                        //setDelay before start scroll
 //              .setPeriod(10)                                      //scroll setPeriod
+                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())                  //data source list
                 .setTransformerClass(ZoomOutSlideTransformer.class) //set page transformer
                 .startScroll();                                     //start scroll,the last method to call
@@ -130,6 +133,8 @@ public class BannerHomeActivity extends Activity {
         sib
 //                .setIndicatorStyle(SimpleImageBanner.STYLE_DRAWABLE_RESOURCE)
 //                .setIndicatorSelectorRes(R.mipmap.banner_dot_unselect, R.mipmap.banner_dot_select)
+                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -145,6 +150,8 @@ public class BannerHomeActivity extends Activity {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_rectangle);
         sib
 //                .setIndicatorCornerRadius(0)
+                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -162,6 +169,8 @@ public class BannerHomeActivity extends Activity {
 //                .setIndicatorWidth(10)
 //                .setIndicatorHeight(4)
 //                .setIndicatorCornerRadius(2)
+                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -176,7 +185,8 @@ public class BannerHomeActivity extends Activity {
 
     private void sib_indicator_right_with_text() {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_indicator_right_with_text);
-        sib
+        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -190,7 +200,8 @@ public class BannerHomeActivity extends Activity {
 
     private void sib_indicator_left_with_text() {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_indicator_left_with_text);
-        sib
+        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -204,7 +215,8 @@ public class BannerHomeActivity extends Activity {
 
     private void sib_anim() {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_anim);
-        sib
+        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSelectAnimClass(ZoomInEnter.class)
                 .setSource(DataProvider.getList())
                 .startScroll();
@@ -223,6 +235,8 @@ public class BannerHomeActivity extends Activity {
 //                .setIndicatorWidth(10)
 //                .setIndicatorHeight(4)
 //                .setIndicatorCornerRadius(2)
+                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
+                .setIndicatorShow(DataProvider.getList().size() == 1)
                 .setSelectAnimClass(RotateEnter.class)
                 .setUnselectAnimClass(NoAnimExist.class)
                 .setSource(DataProvider.getList())

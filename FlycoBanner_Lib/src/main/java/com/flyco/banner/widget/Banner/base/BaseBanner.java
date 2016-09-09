@@ -55,6 +55,8 @@ public abstract class BaseBanner<E, T extends BaseBanner<E, T>> extends Relative
     private long mPeriod;
     /** 是否自动滚动 */
     private boolean mIsAutoScrollEnable;
+    /** 是否支持单张图片自动滚动 */
+    private boolean mIsAutoScrollToSingle;
     /** 是否正在自动滚动中 */
     private boolean mIsAutoScrolling;
     /** 滚动速度 */
@@ -104,6 +106,7 @@ public abstract class BaseBanner<E, T extends BaseBanner<E, T>> extends Relative
         mDelay = ta.getInt(R.styleable.BaseBanner_bb_delay, 5);
         mPeriod = ta.getInt(R.styleable.BaseBanner_bb_period, 5);
         mIsAutoScrollEnable = ta.getBoolean(R.styleable.BaseBanner_bb_isAutoScrollEnable, true);
+        mIsAutoScrollToSingle = ta.getBoolean(R.styleable.BaseBanner_bb_isAutoScrollToSingle, true);
 
         int barColor = ta.getColor(R.styleable.BaseBanner_bb_barColor, Color.TRANSPARENT);
         mIsBarShowWhenLast = ta.getBoolean(R.styleable.BaseBanner_bb_isBarShowWhenLast, true);
@@ -237,6 +240,15 @@ public abstract class BaseBanner<E, T extends BaseBanner<E, T>> extends Relative
         return (T) this;
     }
 
+    /** 设置是否支持单张图片自动滚动,默认true.仅对LoopViewPager有效 */
+    public T setAutoScrollToSingle(boolean isAutoScrollToSingle) {
+        this.mIsAutoScrollToSingle = isAutoScrollToSingle;
+        if(mViewPager instanceof LoopViewPager) {
+            ((LoopViewPager) mViewPager).setAutoScrollToSingle(isAutoScrollToSingle);
+        }
+        return (T)this;
+    }
+
     /** 设置页面切换动画 */
     public T setTransformerClass(Class<? extends ViewPager.PageTransformer> transformerClass) {
         this.mTransformerClass = transformerClass;
@@ -281,7 +293,7 @@ public abstract class BaseBanner<E, T extends BaseBanner<E, T>> extends Relative
 
     /** 设置是否显示显示器,默认true */
     public T setIndicatorShow(boolean isIndicatorShow) {
-        mLlIndicatorContainer.setVisibility(isIndicatorShow ? VISIBLE : INVISIBLE);
+        mLlIndicatorContainer.setVisibility(isIndicatorShow ? INVISIBLE : VISIBLE);
         return (T) this;
     }
 
@@ -377,7 +389,9 @@ public abstract class BaseBanner<E, T extends BaseBanner<E, T>> extends Relative
         if (!isValid()) {
             return;
         }
-
+        if(mIsAutoScrollToSingle) {
+            return;
+        }
         if (mIsAutoScrolling) {
             return;
         }

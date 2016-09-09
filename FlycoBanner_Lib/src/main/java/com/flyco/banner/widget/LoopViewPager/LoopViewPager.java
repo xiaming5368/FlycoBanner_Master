@@ -16,6 +16,11 @@ public class LoopViewPager extends ViewPager {
     private LoopPagerAdapterWrapper mAdapter;
     private boolean mBoundaryCaching = DEFAULT_BOUNDARY_CASHING;
     private List<OnPageChangeListener> mOnPageChangeListeners;
+    private boolean isAutoScrollToSingle = true;
+
+    public void setAutoScrollToSingle(boolean isAutoScrollToSingle) {
+        this.isAutoScrollToSingle = isAutoScrollToSingle;
+    }
 
     /**
      * helper function which may be used when implementing FragmentPagerAdapter
@@ -44,6 +49,13 @@ public class LoopViewPager extends ViewPager {
         mBoundaryCaching = flag;
         if (mAdapter != null) {
             mAdapter.setBoundaryCaching(flag);
+        }
+    }
+
+    @Override
+    public void scrollTo(int x, int y){
+        if (!isAutoScrollToSingle){
+            super.scrollTo(x, y);
         }
     }
 
