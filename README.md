@@ -7,6 +7,34 @@ An android view looper library. Support for Android 2.2 and up.
 
 ####[Here is a DemoApk download](http://fir.im/7qzm)
 
+以下是我的配置，在app的build.gradle里面添加jitpack：
+```gradle
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+##Gradle
+
+```gradle
+dependencies {
+    compile 'com.github.xiaming5368:FlycoBanner_Master:v1.0.3'
+}
+```
+
+int Java Code
+
+``` Java
+sib
+    .setAutoScrollToSingle(DataProvider.getList().size() == 1)  // 是否支持单张图片自动滚动
+    .setIndicatorShow(DataProvider.getList().size() == 1) // 只有一张图片的情况下，是否显示指示器(圆点)
+    .setSource(DataProvider.getList())
+    .startScroll();
+```
+
+以下是原作者的配置
+
 ##Gradle
 
 ```groovy

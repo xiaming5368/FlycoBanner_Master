@@ -16,7 +16,7 @@ public class LoopViewPager extends ViewPager {
     private LoopPagerAdapterWrapper mAdapter;
     private boolean mBoundaryCaching = DEFAULT_BOUNDARY_CASHING;
     private List<OnPageChangeListener> mOnPageChangeListeners;
-    private boolean isAutoScrollToSingle = true;
+    private boolean isAutoScrollToSingle = false;
 
     public void setAutoScrollToSingle(boolean isAutoScrollToSingle) {
         this.isAutoScrollToSingle = isAutoScrollToSingle;

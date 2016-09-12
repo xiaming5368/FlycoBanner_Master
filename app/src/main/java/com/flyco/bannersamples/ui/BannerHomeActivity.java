@@ -80,8 +80,8 @@ public class BannerHomeActivity extends Activity {
     private void sib_simple_usage() {
         SimpleImageBanner sib = ViewFindUtils.find(decorView, R.id.sib_simple_usage);
 
-        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)
-                .setIndicatorShow(DataProvider.getList().size() == 1)
+        sib.setAutoScrollToSingle(DataProvider.getList().size() == 1)  // 是否支持单张图片自动滚动
+                .setIndicatorShow(DataProvider.getList().size() == 1) // 只有一张图片的情况下，是否显示指示器(圆点)
                 .setSource(DataProvider.getList())
                 .startScroll();
 
@@ -113,8 +113,8 @@ public class BannerHomeActivity extends Activity {
 //              .setIndicatorShow(true)                             //set indicator show or not
 //              .setDelay(2)                                        //setDelay before start scroll
 //              .setPeriod(10)                                      //scroll setPeriod
-                .setAutoScrollToSingle(DataProvider.getList().size() == 1)
-                .setIndicatorShow(DataProvider.getList().size() == 1)
+//                .setAutoScrollToSingle(DataProvider.getList().size() == 1) // 是否支持单张图片自动滚动
+//                .setIndicatorShow(DataProvider.getList().size() == 1)  // 只有一张图片的情况下，是否显示指示器(圆点)
                 .setSource(DataProvider.getList())                  //data source list
                 .setTransformerClass(ZoomOutSlideTransformer.class) //set page transformer
                 .startScroll();                                     //start scroll,the last method to call
